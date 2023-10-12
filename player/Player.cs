@@ -8,7 +8,7 @@ public partial class Player : CharacterBody2D {
 
   public Vector2 ScreenSize; // Size of the game window.
 	public override void _Ready() {
-  	ScreenSize = GetViewportRect().Size;
+  		ScreenSize = GetViewportRect().Size;
 	}
 	public override void _Process(double delta) {
     var velocity = Vector2.Zero; // The player's movement vector.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=54 format=3 uid="uid://bh854n80ey5la"]
 
 [ext_resource type="Script" path="res://game/game.cs" id="1_tar1p"]
 [ext_resource type="Script" path="res://game/StaticBody2D.cs" id="2_dnpxw"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cjaauxvl4f6qe" path="res://assets/maps/Building/red_building4.tscn" id="15_3gdx6"]
 [ext_resource type="Texture2D" uid="uid://dl80rqqtj7qf0" path="res://assets/maps/Tiles/tile_0018.png" id="15_ek56o"]
 [ext_resource type="PackedScene" uid="uid://igov45tnsp1u" path="res://assets/maps/Building/orange_building5.tscn" id="19_j401q"]
+[ext_resource type="Texture2D" uid="uid://cm88722wmhr5e" path="res://assets/maps/Tiles/tile_0126.png" id="20_eduss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnkq8"]
 size = Vector2(20, 317)
@@ -78,7 +79,10 @@ radius = 3.0
 size = Vector2(20, 273)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0c0e"]
-size = Vector2(738, 17.75)
+size = Vector2(80, 30.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hd4o"]
+size = Vector2(268, 17.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khwy3"]
 size = Vector2(765, 23.875)
@@ -1662,8 +1666,12 @@ position = Vector2(123, 94.5)
 shape = SubResource("RectangleShape2D_vbut5")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(502, -33)
+position = Vector2(643, -26.4375)
 shape = SubResource("RectangleShape2D_k0c0e")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(737, -32.9375)
+shape = SubResource("RectangleShape2D_4hd4o")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(487.5, 553.938)
@@ -1798,6 +1806,86 @@ position = Vector2(737, 108)
 z_index = 10
 position = Vector2(484, 113)
 
+[node name="TileMap21" parent="." instance=ExtResource("19_j401q")]
+position = Vector2(643, -34)
+
+[node name="TileMap22" parent="." instance=ExtResource("5_jyl00")]
+position = Vector2(707, -47)
+
+[node name="TileMap23" parent="." instance=ExtResource("3_1qsmt")]
+position = Vector2(770, -40)
+
+[node name="TileMap24" parent="." instance=ExtResource("8_t24ln")]
+position = Vector2(834, -46)
+
+[node name="TileMap25" parent="." instance=ExtResource("7_b6kw0")]
+position = Vector2(868, 3)
+
+[node name="TileMap26" parent="." instance=ExtResource("4_8nkqa")]
+z_index = 1
+position = Vector2(884, 56)
+
+[node name="TileMap27" parent="." instance=ExtResource("13_0tnom")]
+z_index = 2
+position = Vector2(884, 137)
+
+[node name="TileMap28" parent="." instance=ExtResource("19_j401q")]
+z_index = 3
+position = Vector2(884, 210)
+
+[node name="TileMap29" parent="." instance=ExtResource("4_8nkqa")]
+z_index = 5
+position = Vector2(85, 556)
+
+[node name="TileMap30" parent="." instance=ExtResource("12_dl416")]
+z_index = 10
+position = Vector2(206, 578)
+
+[node name="TileMap31" parent="." instance=ExtResource("19_j401q")]
+z_index = 10
+position = Vector2(356, 576)
+
+[node name="TileMap32" parent="." instance=ExtResource("15_3gdx6")]
+z_index = 10
+position = Vector2(478, 579)
+
+[node name="TileMap34" parent="." instance=ExtResource("4_8nkqa")]
+z_index = 10
+position = Vector2(723, 564)
+
+[node name="TileMap33" parent="." instance=ExtResource("7_b6kw0")]
+z_index = 10
+position = Vector2(641, 560)
+
+[node name="TileMap35" parent="." instance=ExtResource("6_c5clo")]
+z_index = 10
+position = Vector2(591, 569)
+
+[node name="TileMap36" parent="." instance=ExtResource("12_dl416")]
+z_index = 3
+position = Vector2(900, 551)
+
+[node name="TileMap37" parent="." instance=ExtResource("8_t24ln")]
+z_index = 2
+position = Vector2(868, 470)
+
+[node name="TileMap38" parent="." instance=ExtResource("5_jyl00")]
+z_index = 1
+position = Vector2(868, 412)
+
+[node name="TileMap39" parent="." instance=ExtResource("3_1qsmt")]
+position = Vector2(884, 353)
+
+[node name="Tile0126" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(678, 388)
+texture = ExtResource("20_eduss")
+
+[node name="Tile0127" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(663, 388)
+texture = ExtResource("20_eduss")
+
 [node name="Player" parent="." instance=ExtResource("3_78c5f")]
 position = Vector2(328, 321)
 
@@ -1805,7 +1893,7 @@ position = Vector2(328, 321)
 position = Vector2(-85, 11)
 tile_set = SubResource("TileSet_x5mhc")
 format = 2
-layer_0/tile_data = PackedInt32Array(1048595, 983040, 14, 1114131, 983040, 15, 1048596, 1048576, 14, 1114132, 1048576, 15, 1114133, 1376256, 16, 1114134, 1441792, 16, 983052, 524288, 11, 983051, 524288, 11, 983061, 327680, 14, 983060, 262144, 14, 393243, 196608, 12, 458779, 196608, 12, 524307, 196608, 13, 655379, 196608, 13, 786451, 196608, 13, 983062, 393216, 14, 720922, 786432, 7, 655386, 786432, 6, 655385, 720896, 6, 720921, 720896, 7, 655384, 1048576, 8, 720920, 1048576, 9, 851987, 1048576, 8, 917523, 1048576, 9, 393235, 1048576, 8, 458771, 1048576, 9, 262166, 1048576, 8, 327702, 1048576, 9, 262171, 1048576, 8, 327707, 1048576, 9, 655387, 1048576, 8, 720923, 1048576, 9, 851991, 1048576, 8, 917527, 1048576, 9, 1310732, 327680, 9, 1245196, 327680, 9, 1179660, 327680, 9, 1114124, 327680, 9, 1048588, 327680, 9, -131044, 327680, 9, -131043, 327680, 9, -131042, 327680, 9, -131041, 327680, 9, -131040, 327680, 9, 1048634, 327680, 9, 1114170, 327680, 9, 1179706, 327680, 9, 1310778, 327680, 9, 1245242, 327680, 9, 983098, 327680, 9, 2228277, 327680, 9, 2228278, 327680, 9, 2228279, 327680, 9, 2228280, 327680, 9, 2228281, 327680, 9, -131045, 327680, 9, -131039, 327680, 9, 1769510, 327680, 14, 1769511, 327680, 14)
+layer_0/tile_data = PackedInt32Array(1048595, 983040, 14, 1114131, 983040, 15, 1048596, 1048576, 14, 1114132, 1048576, 15, 1114133, 1376256, 16, 1114134, 1441792, 16, 983052, 524288, 11, 983051, 524288, 11, 983061, 327680, 14, 983060, 262144, 14, 393243, 196608, 12, 458779, 196608, 12, 524307, 196608, 13, 655379, 196608, 13, 786451, 196608, 13, 983062, 393216, 14, 720922, 786432, 7, 655386, 786432, 6, 655385, 720896, 6, 720921, 720896, 7, 655384, 1048576, 8, 720920, 1048576, 9, 851987, 1048576, 8, 917523, 1048576, 9, 393235, 1048576, 8, 458771, 1048576, 9, 262166, 1048576, 8, 327702, 1048576, 9, 262171, 1048576, 8, 327707, 1048576, 9, 655387, 1048576, 8, 720923, 1048576, 9, 851991, 1048576, 8, 917527, 1048576, 9, 1310732, 327680, 9, 1245196, 327680, 9, 1179660, 327680, 9, 1114124, 327680, 9, 1048588, 327680, 9, -131044, 327680, 9, -131043, 327680, 9, -131042, 327680, 9, -131041, 327680, 9, -131040, 327680, 9, 1048634, 327680, 9, 1114170, 327680, 9, 1179706, 327680, 9, 1310778, 327680, 9, 1245242, 327680, 9, 983098, 327680, 9, 2228277, 327680, 9, 2228278, 327680, 9, 2228279, 327680, 9, 2228280, 327680, 9, 2228281, 327680, 9, -131045, 327680, 9, -131039, 327680, 9, 1769510, 327680, 14, 1769511, 327680, 14, 2293773, 327680, 14, 2293774, 327680, 14, 2293775, 327680, 14, 2293776, 327680, 14, 2293777, 327680, 14, 2293778, 327680, 14, 2293779, 327680, 14, 2293780, 327680, 14, 2293781, 327680, 14, 2293782, 327680, 14, 2293783, 327680, 14, 2293784, 327680, 14, 2293785, 327680, 14, 2293786, 327680, 14, 2293787, 327680, 14, 2293788, 327680, 14, 2293789, 327680, 14, 2293790, 327680, 14, 2293791, 327680, 14, 2293792, 327680, 14, 2293793, 327680, 14, 2293794, 327680, 14, 2293795, 327680, 14, 2293796, 327680, 14, 2293797, 327680, 14, 2293798, 327680, 14, 2293799, 327680, 14, 2293800, 327680, 14, 2293801, 327680, 14, 2293802, 327680, 14, 2293803, 327680, 14, 2293804, 327680, 14, 2293805, 327680, 14, 2293806, 327680, 14, 2293807, 327680, 14, 2293808, 327680, 14, 2293809, 327680, 14, 2293810, 327680, 14, 2293811, 327680, 14, 2293812, 327680, 14)
 
 [node name="park" type="TileMap" parent="."]
 z_index = -5
