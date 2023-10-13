@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://8lxg21gwhg78"]
+
+[ext_resource type="Texture2D" uid="uid://bt4of7m05nbvi" path="res://assets/maps/Tiles/tile_0477.png" id="1_tjus7"]
+[ext_resource type="Texture2D" uid="uid://c5oj4g1byl5bh" path="res://assets/maps/Tiles/tile_0478.png" id="2_db20x"]
+[ext_resource type="Texture2D" uid="uid://bm15c2ijeqybr" path="res://assets/maps/Tiles/tile_0450.png" id="3_v48fp"]
+[ext_resource type="Texture2D" uid="uid://bc1tp77ehywpa" path="res://assets/maps/Tiles/tile_0451.png" id="4_swbgh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uxxd"]
+size = Vector2(22, 22)
+
+[node name="cars1" type="TileMap"]
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 17)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -18)
+shape = SubResource("RectangleShape2D_7uxxd")
+
+[node name="Tile0477" type="Sprite2D" parent="."]
+position = Vector2(-7, 2)
+texture = ExtResource("1_tjus7")
+
+[node name="Tile0478" type="Sprite2D" parent="."]
+position = Vector2(9, 2)
+texture = ExtResource("2_db20x")
+
+[node name="Tile0450" type="Sprite2D" parent="."]
+position = Vector2(-7, -14)
+texture = ExtResource("3_v48fp")
+
+[node name="Tile0451" type="Sprite2D" parent="."]
+position = Vector2(9, -14)
+texture = ExtResource("4_swbgh")

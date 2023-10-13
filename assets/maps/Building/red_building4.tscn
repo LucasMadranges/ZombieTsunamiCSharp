@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjaauxvl4f6qe"]
+[gd_scene load_steps=41 format=3 uid="uid://cjaauxvl4f6qe"]
 
 [ext_resource type="Texture2D" uid="uid://c7fw3jvbmyqfy" path="res://assets/maps/Tiles/tile_0211.png" id="7_10for"]
 [ext_resource type="Texture2D" uid="uid://bmepcfrxrwomj" path="res://assets/maps/Tiles/tile_0210.png" id="8_0vdkd"]
@@ -38,6 +38,12 @@
 [ext_resource type="Texture2D" uid="uid://ckr0an6sclcr" path="res://assets/maps/Tiles/tile_0282.png" id="36_tsu72"]
 [ext_resource type="Texture2D" uid="uid://qfn2ro76mtux" path="res://assets/maps/Tiles/tile_0021.png" id="37_1a4wb"]
 [ext_resource type="Texture2D" uid="uid://qcpk6sien25x" path="res://assets/maps/Tiles/tile_0022.png" id="38_8oh4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpp06"]
+size = Vector2(32, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyogj"]
+size = Vector2(112, 69.5)
 
 [node name="TileMap" type="TileMap"]
 position = Vector2(48, 8)
@@ -353,3 +359,14 @@ texture = ExtResource("37_1a4wb")
 z_index = -1
 position = Vector2(16, 0)
 texture = ExtResource("38_8oh4j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 17)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(72, -13)
+shape = SubResource("RectangleShape2D_cpp06")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -11.25)
+shape = SubResource("RectangleShape2D_tyogj")

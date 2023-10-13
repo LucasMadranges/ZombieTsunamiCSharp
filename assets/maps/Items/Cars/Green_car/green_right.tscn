@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2ur0vro6yb7c"]
+
+[ext_resource type="Texture2D" uid="uid://dxcgik4jcnbny" path="res://assets/maps/Tiles/tile_0480.png" id="1_j1t0d"]
+[ext_resource type="Texture2D" uid="uid://6o04aevkra00" path="res://assets/maps/Tiles/tile_0481.png" id="2_10ca2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uxxd"]
+size = Vector2(22, 16)
+
+[node name="cars1" type="TileMap"]
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 17)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, -17)
+shape = SubResource("RectangleShape2D_7uxxd")
+
+[node name="Tile0480" type="Sprite2D" parent="."]
+position = Vector2(-6, 0)
+texture = ExtResource("1_j1t0d")
+
+[node name="Tile0481" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+texture = ExtResource("2_10ca2")

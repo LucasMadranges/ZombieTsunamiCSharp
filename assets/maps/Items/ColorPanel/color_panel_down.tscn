@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b22xgi1c81sqy"]
+
+[ext_resource type="Texture2D" uid="uid://ekhj54r36egh" path="res://assets/maps/Tiles/tile_0191.png" id="2_6n6yu"]
+[ext_resource type="Texture2D" uid="uid://du1bnbg8fig7r" path="res://assets/maps/Tiles/tile_0409.png" id="3_64quu"]
+[ext_resource type="Texture2D" uid="uid://60jd8jvn7hs4" path="res://assets/maps/Tiles/pixil-frame-0-7.png" id="3_wbqu8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ekkds"]
+radius = 3.0
+
+[node name="color_panel" type="TileMap"]
+format = 2
+
+[node name="Tile0191" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(-4, -4)
+texture = ExtResource("2_6n6yu")
+
+[node name="Pixil-frame-0-7" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -18)
+texture = ExtResource("3_wbqu8")
+
+[node name="Tile0409" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(-4, -34)
+texture = ExtResource("3_64quu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 17)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -17)
+shape = SubResource("CircleShape2D_ekkds")
