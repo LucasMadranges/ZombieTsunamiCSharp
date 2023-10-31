@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=46 format=3 uid="uid://bh854n80ey5la"]
 
 [ext_resource type="PackedScene" uid="uid://balrox7yjn3f2" path="res://assets/maps/Building/red_building1.tscn" id="3_1qsmt"]
 [ext_resource type="PackedScene" uid="uid://dfrar38geyvau" path="res://player/Player.tscn" id="3_78c5f"]
@@ -58,6 +58,48 @@ size = Vector2(21, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emi3v"]
 size = Vector2(21, 17)
+
+[sub_resource type="CSharpScript" id="CSharpScript_hnjms"]
+script/source = "using Godot;
+using System;
+
+public partial class zombie_toast : CharacterBody2D
+{
+	public const float Speed = 300.0f;
+	public const float JumpVelocity = -400.0f;
+
+	// Get the gravity from the project settings to be synced with RigidBody nodes.
+	public float gravity = ProjectSettings.GetSetting(\"physics/2d/default_gravity\").AsSingle();
+
+	public override void _PhysicsProcess(double delta)
+	{
+		Vector2 velocity = Velocity;
+
+		// Add the gravity.
+		if (!IsOnFloor())
+			velocity.Y += gravity * (float)delta;
+
+		// Handle Jump.
+		if (Input.IsActionJustPressed(\"ui_accept\") && IsOnFloor())
+			velocity.Y = JumpVelocity;
+
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
+		Vector2 direction = Input.GetVector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\");
+		if (direction != Vector2.Zero)
+		{
+			velocity.X = direction.X * Speed;
+		}
+		else
+		{
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+		}
+
+		Velocity = velocity;
+		MoveAndSlide();
+	}
+}
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2cqu"]
 texture = ExtResource("10_ywahv")
@@ -1586,7 +1628,9 @@ shape = SubResource("RectangleShape2D_emi3v")
 position = Vector2(335, 248)
 
 [node name="zombie_toast" parent="." instance=ExtResource("28_f4cps")]
-position = Vector2(405, 290)
+z_index = 10
+position = Vector2(355, 242)
+script = SubResource("CSharpScript_hnjms")
 
 [node name="maps" type="TileMap" parent="."]
 format = 2

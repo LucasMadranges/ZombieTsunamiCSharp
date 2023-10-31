@@ -54,9 +54,6 @@ public partial class Player : CharacterBody2D {
             animatedSprite2D.Animation = "up";
             animatedSprite2D.FlipV = velocity.Y > 0;
         }
-        else if (velocity.X == 0 && velocity.Y == 0) {
-            animatedSprite2D.Animation = "unanimed";
-        }
 
         if (Input.IsActionJustReleased("move_right")) animatedSprite2D.Animation = "right_stop";
         if (Input.IsActionJustReleased("move_left")) animatedSprite2D.Animation = "left_stop";

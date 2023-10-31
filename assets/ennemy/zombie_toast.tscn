@@ -1,7 +1,48 @@
 [gd_scene load_steps=28 format=3 uid="uid://w0gk8fxd5aq6"]
 
-[ext_resource type="Script" path="res://assets/ennemy/zombie_toast.cs" id="1_m05p2"]
 [ext_resource type="Texture2D" uid="uid://8ua17n4oa5ci" path="res://assets/ennemy/ZombieToast.png" id="2_j68qk"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_7rxia"]
+script/source = "using Godot;
+using System;
+
+public partial class zombie_toast : CharacterBody2D
+{
+	public const float Speed = 300.0f;
+	public const float JumpVelocity = -400.0f;
+
+	// Get the gravity from the project settings to be synced with RigidBody nodes.
+	public float gravity = ProjectSettings.GetSetting(\"physics/2d/default_gravity\").AsSingle();
+
+	public override void _PhysicsProcess(double delta)
+	{
+		Vector2 velocity = Velocity;
+
+		// Add the gravity.
+		if (!IsOnFloor())
+			velocity.Y += gravity * (float)delta;
+
+		// Handle Jump.
+		if (Input.IsActionJustPressed(\"ui_accept\") && IsOnFloor())
+			velocity.Y = JumpVelocity;
+
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
+		Vector2 direction = Input.GetVector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\");
+		if (direction != Vector2.Zero)
+		{
+			velocity.X = direction.X * Speed;
+		}
+		else
+		{
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+		}
+
+		Velocity = velocity;
+		MoveAndSlide();
+	}
+}
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bubsx"]
 atlas = ExtResource("2_j68qk")
@@ -185,10 +226,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdgoq"]
 size = Vector2(13, 12)
 
-[node name="zombie_toast" type="RigidBody2D"]
+[node name="zombie_toast" type="CharacterBody2D"]
 position = Vector2(3, -17)
-gravity_scale = 2.66454e-15
-script = ExtResource("1_m05p2")
+script = SubResource("CSharpScript_7rxia")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 9)
@@ -201,7 +241,3 @@ frame_progress = 0.922435
 light_mask = 0
 position = Vector2(-2.5, 14)
 shape = SubResource("RectangleShape2D_sdgoq")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-2.5, 14)
-scale = Vector2(0.65, 0.6)
