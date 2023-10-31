@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=43 format=3 uid="uid://bh854n80ey5la"]
 
 [ext_resource type="PackedScene" uid="uid://balrox7yjn3f2" path="res://assets/maps/Building/red_building1.tscn" id="3_1qsmt"]
 [ext_resource type="PackedScene" uid="uid://dfrar38geyvau" path="res://player/Player.tscn" id="3_78c5f"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://7gjqj5c1v84i" path="res://assets/maps/Items/ColorPanel/color_panel_up.tscn" id="26_npsbv"]
 [ext_resource type="PackedScene" uid="uid://dk3iipe6sahsd" path="res://assets/maps/Items/ColorPanel/color_panel_left.tscn" id="27_t83x0"]
 [ext_resource type="PackedScene" uid="uid://txdai3ds50wk" path="res://assets/maps/Items/Cars/Taxi/taxi_left.tscn" id="27_u76ob"]
+[ext_resource type="PackedScene" uid="uid://w0gk8fxd5aq6" path="res://assets/ennemy/zombie_toast.tscn" id="28_f4cps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnkq8"]
 size = Vector2(20, 112)
@@ -1822,3 +1823,6 @@ position = Vector2(535, 224)
 
 [node name="cars7" parent="." instance=ExtResource("27_u76ob")]
 position = Vector2(541, 175)
+
+[node name="zombie_toast" parent="." instance=ExtResource("28_f4cps")]
+position = Vector2(405, 290)
