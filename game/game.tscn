@@ -1,7 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=45 format=3 uid="uid://bh854n80ey5la"]
 
+[ext_resource type="Script" path="res://game/game.cs" id="1_2hihr"]
 [ext_resource type="PackedScene" uid="uid://balrox7yjn3f2" path="res://assets/maps/Building/red_building1.tscn" id="3_1qsmt"]
 [ext_resource type="PackedScene" uid="uid://dfrar38geyvau" path="res://player/Player.tscn" id="3_78c5f"]
+[ext_resource type="PackedScene" uid="uid://bivk67hen2k1f" path="res://assets/ennemy/ZombieToast.tscn" id="3_nyby6"]
 [ext_resource type="PackedScene" uid="uid://dqvbd4bgpw4su" path="res://assets/maps/Building/orange_building1.tscn" id="4_8nkqa"]
 [ext_resource type="PackedScene" uid="uid://b3228sk1msuqy" path="res://assets/maps/Building/red_building2.tscn" id="5_jyl00"]
 [ext_resource type="PackedScene" uid="uid://cf8f100l1eova" path="res://assets/maps/Building/orange_building2.tscn" id="6_c5clo"]
@@ -27,16 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://7gjqj5c1v84i" path="res://assets/maps/Items/ColorPanel/color_panel_up.tscn" id="26_npsbv"]
 [ext_resource type="PackedScene" uid="uid://dk3iipe6sahsd" path="res://assets/maps/Items/ColorPanel/color_panel_left.tscn" id="27_t83x0"]
 [ext_resource type="PackedScene" uid="uid://txdai3ds50wk" path="res://assets/maps/Items/Cars/Taxi/taxi_left.tscn" id="27_u76ob"]
-[ext_resource type="PackedScene" uid="uid://w0gk8fxd5aq6" path="res://assets/ennemy/zombie_toast.tscn" id="28_f4cps"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_v3imv"]
-script/source = "using Godot;
-using System;
-
-public partial class game : Node2D
-{
-}
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnkq8"]
 size = Vector2(20, 112)
@@ -58,48 +50,6 @@ size = Vector2(21, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emi3v"]
 size = Vector2(21, 17)
-
-[sub_resource type="CSharpScript" id="CSharpScript_hnjms"]
-script/source = "using Godot;
-using System;
-
-public partial class zombie_toast : CharacterBody2D
-{
-	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
-
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting(\"physics/2d/default_gravity\").AsSingle();
-
-	public override void _PhysicsProcess(double delta)
-	{
-		Vector2 velocity = Velocity;
-
-		// Add the gravity.
-		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta;
-
-		// Handle Jump.
-		if (Input.IsActionJustPressed(\"ui_accept\") && IsOnFloor())
-			velocity.Y = JumpVelocity;
-
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\");
-		if (direction != Vector2.Zero)
-		{
-			velocity.X = direction.X * Speed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-		}
-
-		Velocity = velocity;
-		MoveAndSlide();
-	}
-}
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2cqu"]
 texture = ExtResource("10_ywahv")
@@ -1591,7 +1541,7 @@ point_count = 5
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-3, 54)
-script = SubResource("CSharpScript_v3imv")
+script = ExtResource("1_2hihr")
 
 [node name="Collision" type="StaticBody2D" parent="."]
 position = Vector2(0, 17)
@@ -1625,12 +1575,7 @@ position = Vector2(535, 435)
 shape = SubResource("RectangleShape2D_emi3v")
 
 [node name="Player" parent="." instance=ExtResource("3_78c5f")]
-position = Vector2(335, 248)
-
-[node name="zombie_toast" parent="." instance=ExtResource("28_f4cps")]
-z_index = 10
-position = Vector2(355, 242)
-script = SubResource("CSharpScript_hnjms")
+position = Vector2(331, 242)
 
 [node name="maps" type="TileMap" parent="."]
 format = 2
@@ -1890,6 +1835,9 @@ position = Vector2(151, 279)
 [node name="color_panel4" parent="maps" instance=ExtResource("27_t83x0")]
 position = Vector2(151, 335)
 
+[node name="cars8" parent="maps" instance=ExtResource("26_aaiul")]
+position = Vector2(459, 290)
+
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
@@ -1911,3 +1859,15 @@ curve = SubResource("Curve2D_yl8ip")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(155, 24.2194)
 rotation = 3.14159
+
+[node name="ZombieToast" parent="." instance=ExtResource("3_nyby6")]
+position = Vector2(363, 234)
+
+[node name="ZombieToast2" parent="." instance=ExtResource("3_nyby6")]
+position = Vector2(340, 226)
+
+[node name="ZombieToast3" parent="." instance=ExtResource("3_nyby6")]
+position = Vector2(388, 226)
+
+[node name="ZombieToast4" parent="." instance=ExtResource("3_nyby6")]
+position = Vector2(348, 266)
