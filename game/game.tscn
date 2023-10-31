@@ -1575,7 +1575,7 @@ position = Vector2(535, 435)
 shape = SubResource("RectangleShape2D_emi3v")
 
 [node name="Player" parent="." instance=ExtResource("3_78c5f")]
-position = Vector2(331, 242)
+position = Vector2(491, 258)
 
 [node name="maps" type="TileMap" parent="."]
 format = 2
@@ -1861,13 +1861,13 @@ position = Vector2(155, 24.2194)
 rotation = 3.14159
 
 [node name="ZombieToast" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(363, 234)
+position = Vector2(546, 274)
 
 [node name="ZombieToast2" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(340, 226)
+position = Vector2(546, 298)
 
 [node name="ZombieToast3" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(388, 226)
+position = Vector2(571, 266)
 
 [node name="ZombieToast4" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(348, 266)
+position = Vector2(531, 306)

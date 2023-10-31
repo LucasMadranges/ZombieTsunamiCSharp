@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfrar38geyvau"]
+[gd_scene load_steps=17 format=3 uid="uid://dfrar38geyvau"]
 
 [ext_resource type="Texture2D" uid="uid://bvgt01cl70156" path="res://assets/maps/Tiles/tile_0078.png" id="1_582wd"]
 [ext_resource type="Texture2D" uid="uid://bkdestn8i8wjf" path="res://assets/maps/Tiles/tile_0026.png" id="1_ehe8n"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bex1knjqxgbk4" path="res://assets/maps/Tiles/tile_0052.png" id="9_hr0lr"]
 [ext_resource type="Texture2D" uid="uid://dakqflblklutx" path="res://assets/maps/Tiles/tile_0079.png" id="10_oclrp"]
 [ext_resource type="Texture2D" uid="uid://bqiqbmbgtq60q" path="res://assets/maps/Tiles/tile_0025.png" id="13_prm7i"]
+[ext_resource type="Texture2D" uid="uid://bg2h6eymr11ne" path="res://assets/guns/1_1.png" id="14_pi6kb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a7n0n"]
 animations = [{
@@ -116,7 +117,7 @@ script = ExtResource("1_xrap6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_a7n0n")
-animation = &"up_stop"
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.642857)
@@ -125,3 +126,9 @@ one_way_collision_margin = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(15, 15)
+
+[node name="11" type="Sprite2D" parent="."]
+z_index = 7
+position = Vector2(2.85714, 4.28572)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_pi6kb")
