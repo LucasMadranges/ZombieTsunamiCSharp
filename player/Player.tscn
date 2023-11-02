@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bex1knjqxgbk4" path="res://assets/maps/Tiles/tile_0052.png" id="9_hr0lr"]
 [ext_resource type="Texture2D" uid="uid://dakqflblklutx" path="res://assets/maps/Tiles/tile_0079.png" id="10_oclrp"]
 [ext_resource type="Texture2D" uid="uid://bqiqbmbgtq60q" path="res://assets/maps/Tiles/tile_0025.png" id="13_prm7i"]
-[ext_resource type="Texture2D" uid="uid://bg2h6eymr11ne" path="res://assets/guns/1_1.png" id="14_pi6kb"]
+[ext_resource type="PackedScene" uid="uid://32rlihmsaaih" path="res://player/Weapon.tscn" id="14_2f6wl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a7n0n"]
 animations = [{
@@ -107,7 +107,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkn7q"]
-size = Vector2(12, 15.5714)
+size = Vector2(11.0554, 15.1154)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -120,15 +120,15 @@ sprite_frames = SubResource("SpriteFrames_a7n0n")
 animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.642857)
+position = Vector2(0.472297, 0.41485)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hkn7q")
 one_way_collision_margin = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(15, 15)
 
-[node name="11" type="Sprite2D" parent="."]
-z_index = 7
-position = Vector2(2.85714, 4.28572)
+[node name="Weapon" parent="." instance=ExtResource("14_2f6wl")]
+z_index = 1
+position = Vector2(1.05481, -10.0116)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("14_pi6kb")
