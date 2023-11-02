@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://32rlihmsaaih"]
+
+[ext_resource type="Script" path="res://player/Weapon.cs" id="1_7ukam"]
+[ext_resource type="Texture2D" uid="uid://bg2h6eymr11ne" path="res://assets/guns/1_1.png" id="2_3jcpl"]
+[ext_resource type="PackedScene" uid="uid://bqaesw3irxe8p" path="res://player/Bullet.tscn" id="2_5dxkx"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_7ukam")
+bullet_scn = ExtResource("2_5dxkx")
+
+[node name="11" type="Sprite2D" parent="."]
+position = Vector2(0.48069, 1.04237)
+texture = ExtResource("2_3jcpl")
