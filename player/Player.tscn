@@ -121,7 +121,6 @@ animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.472297, 0.41485)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hkn7q")
 one_way_collision_margin = 0.0
 
