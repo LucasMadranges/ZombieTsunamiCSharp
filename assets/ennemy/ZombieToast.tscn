@@ -1,46 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bivk67hen2k1f"]
+[gd_scene load_steps=4 format=3 uid="uid://bivk67hen2k1f"]
 
 [ext_resource type="Script" path="res://assets/ennemy/ZombieToast.cs" id="1_0cheh"]
-[ext_resource type="Texture2D" uid="uid://8ua17n4oa5ci" path="res://assets/ennemy/ZombieToast.png" id="1_qf8st"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4p1r"]
-atlas = ExtResource("1_qf8st")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0ybd"]
-atlas = ExtResource("1_qf8st")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_orbf6"]
-atlas = ExtResource("1_qf8st")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fa0aw"]
-atlas = ExtResource("1_qf8st")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_17v1o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j4p1r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c0ybd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_orbf6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fa0aw")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://bwgf1ksd0717b" path="res://assets/top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_ixgif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ljb"]
-size = Vector2(5, 12)
+size = Vector2(10.1734, 13.1325)
 
 [node name="ZombieToast" type="RigidBody2D"]
 position = Vector2(1, 0)
@@ -48,13 +12,11 @@ gravity_scale = 2.66454e-15
 can_sleep = false
 script = ExtResource("1_0cheh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 8
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_17v1o")
-animation = &"walk"
-frame_progress = 0.217527
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 7)
+position = Vector2(-0.0350528, 0.000619411)
 shape = SubResource("RectangleShape2D_d1ljb")
+
+[node name="Zoimbie1Hold" type="Sprite2D" parent="."]
+position = Vector2(-0.110313, 0.038682)
+scale = Vector2(0.285632, 0.301799)
+texture = ExtResource("2_ixgif")

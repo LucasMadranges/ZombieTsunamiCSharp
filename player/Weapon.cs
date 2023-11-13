@@ -15,8 +15,6 @@ public partial class Weapon : Node2D {
     }
 
     public override void _PhysicsProcess(double delta) {
-        LookAt(GetGlobalMousePosition());
-
         if (Input.IsActionPressed("fire") && time_until_fire > fire_rate) {
             var bullet = bullet_scn.Instantiate<RigidBody2D>();
 
