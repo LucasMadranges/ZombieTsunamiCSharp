@@ -16,9 +16,9 @@ public partial class ZombieToast : RigidBody2D {
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta) {
-        var target = GetTree().CurrentScene.GetNode<CharacterBody2D>("Player").Position;
-        var targetPosition = (target - Position).Normalized();
+        var target = GetTree().CurrentScene.GetNode<CharacterBody2D>("Player");
+        var targetPosition = (target.Position - Position).Normalized();
         MoveAndCollide(targetPosition * SPEED);
-        LookAt(target);
+        LookAt(target.GlobalPosition);
     }
 }
