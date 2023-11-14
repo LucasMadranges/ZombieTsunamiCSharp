@@ -1,22 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://bivk67hen2k1f"]
+[gd_scene load_steps=5 format=3 uid="uid://bivk67hen2k1f"]
 
 [ext_resource type="Script" path="res://assets/ennemy/ZombieToast.cs" id="1_0cheh"]
 [ext_resource type="Texture2D" uid="uid://bwgf1ksd0717b" path="res://assets/top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_ixgif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ljb"]
-size = Vector2(10.1734, 13.1325)
+size = Vector2(6.75001, 13.1325)
 
-[node name="ZombieToast" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7mo3"]
+size = Vector2(2.80736, 13.1325)
+
+[node name="ZombieToast" type="CharacterBody2D"]
 position = Vector2(1, 0)
-gravity_scale = 2.66454e-15
-can_sleep = false
+motion_mode = 1
 script = ExtResource("1_0cheh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.0350528, 0.000619411)
+position = Vector2(-0.0640159, 0.000619411)
 shape = SubResource("RectangleShape2D_d1ljb")
 
 [node name="Zoimbie1Hold" type="Sprite2D" parent="."]
 position = Vector2(-0.110313, 0.038682)
 scale = Vector2(0.285632, 0.301799)
 texture = ExtResource("2_ixgif")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(4.7035, 0.0327647)
+shape = SubResource("RectangleShape2D_m7mo3")
+
+[connection signal="body_entered" from="AttackRange" to="." method="OnAttackBodyEnter"]
+[connection signal="body_exited" from="AttackRange" to="." method="OnAttackBodyExit"]
