@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Godot;
 
 public partial class ZombieToast : CharacterBody2D {
@@ -43,7 +42,7 @@ public partial class ZombieToast : CharacterBody2D {
     }
 
     public void Attack() {
-        Debug.Print("Attack player");
+        player.GetNode<Health>("Health").Damage(damage);
     }
 
     public void OnAttackBodyEnter(Node2D body) {

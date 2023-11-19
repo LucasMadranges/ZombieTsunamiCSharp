@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bivk67hen2k1f"]
+[gd_scene load_steps=6 format=3 uid="uid://bivk67hen2k1f"]
 
 [ext_resource type="Script" path="res://assets/ennemy/ZombieToast.cs" id="1_0cheh"]
 [ext_resource type="Texture2D" uid="uid://bwgf1ksd0717b" path="res://assets/top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_ixgif"]
+[ext_resource type="Script" path="res://assets/script/Health.cs" id="3_5mbp7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3en5o"]
 radius = 4.91822
@@ -10,7 +11,7 @@ height = 14.3949
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7mo3"]
 size = Vector2(4.59878, 12.9492)
 
-[node name="ZombieToast" type="CharacterBody2D"]
+[node name="ZombieToast" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(1, 0)
 motion_mode = 1
 script = ExtResource("1_0cheh")
@@ -29,6 +30,10 @@ texture = ExtResource("2_ixgif")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(4.24911, 0.199055)
 shape = SubResource("RectangleShape2D_m7mo3")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("3_5mbp7")
+max_health = 50.0
 
 [connection signal="body_entered" from="AttackRange" to="." method="OnAttackBodyEnter"]
 [connection signal="body_exited" from="AttackRange" to="." method="OnAttackBodyExit"]

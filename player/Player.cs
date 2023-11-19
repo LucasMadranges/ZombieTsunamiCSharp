@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 
 public partial class Player : CharacterBody2D {
@@ -5,7 +6,7 @@ public partial class Player : CharacterBody2D {
 
     // Called when the node enters the scene tree for the first time.    [Export]
     public int Speed { get; set; } = 100; // How fast the player will move (pixels/sec).
-
+    
     public override void _Ready() {
         ScreenSize = GetViewportRect().Size;
     }
@@ -23,11 +24,8 @@ public partial class Player : CharacterBody2D {
 
         // var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
-        if (velocity.Length() > 0) {
-            velocity = velocity.Normalized() * Speed;
-            // animatedSprite2D.Play();
-        }
-
+        if (velocity.Length() > 0) velocity = velocity.Normalized() * Speed;
+        // animatedSprite2D.Play();
         // animatedSprite2D.Stop();
         Position += velocity * (float)delta;
         Position = new Vector2(

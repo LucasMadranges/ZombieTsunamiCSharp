@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfrar38geyvau"]
+[gd_scene load_steps=7 format=3 uid="uid://dfrar38geyvau"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_xrap6"]
+[ext_resource type="Script" path="res://assets/script/Health.cs" id="5_ufpc1"]
 [ext_resource type="Texture2D" uid="uid://brtxv21m1o0th" path="res://assets/top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="8_0w0i8"]
 [ext_resource type="Script" path="res://player/Weapon.cs" id="13_lqpju"]
 [ext_resource type="PackedScene" uid="uid://bqaesw3irxe8p" path="res://player/Bullet.tscn" id="15_10f6q"]
@@ -32,3 +33,6 @@ bullet_scn = ExtResource("15_10f6q")
 position = Vector2(2.99558, -2.96263)
 scale = Vector2(0.344204, 0.393765)
 texture = ExtResource("8_0w0i8")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("5_ufpc1")

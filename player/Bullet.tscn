@@ -28,3 +28,5 @@ texture = ExtResource("1_d7qj4")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
