@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 
 public partial class ZombieToast : CharacterBody2D {
@@ -7,6 +8,7 @@ public partial class ZombieToast : CharacterBody2D {
 
     private float attack_speed;
     [Export] private float damage = 10f;
+    private Player player;
     private float time_until_attack;
     private bool within_attack_range;
 
@@ -31,14 +33,17 @@ public partial class ZombieToast : CharacterBody2D {
         MoveAndCollide(targetPosition * SPEED);
         LookAt(target.GlobalPosition);
 
-        if (within_attack_range)
+        if (within_attack_range && time_until_attack <= 0) {
             Attack();
-        else
+            time_until_attack = attack_speed;
+        }
+        else {
             time_until_attack -= (float)delta;
+        }
     }
 
     public void Attack() {
-        GD.Print("Attack player");
+        Debug.Print("Attack player");
     }
 
     public void OnAttackBodyEnter(Node2D body) {
