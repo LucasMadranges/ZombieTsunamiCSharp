@@ -7,7 +7,6 @@ public partial class ZombieToast : CharacterBody2D {
 
     private float attack_speed;
     [Export] private float damage = 10f;
-    private Player player;
     private float time_until_attack;
     private bool within_attack_range;
 
@@ -42,7 +41,7 @@ public partial class ZombieToast : CharacterBody2D {
     }
 
     public void Attack() {
-        player.GetNode<Health>("Health").Damage(damage);
+        GetTree().CurrentScene.GetNode<CharacterBody2D>("Player").GetNode<Health>("Health").Damage(damage);
     }
 
     public void OnAttackBodyEnter(Node2D body) {

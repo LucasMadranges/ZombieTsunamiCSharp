@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bivk67hen2k1f"]
+[gd_scene load_steps=7 format=3 uid="uid://bivk67hen2k1f"]
 
 [ext_resource type="Script" path="res://assets/ennemy/ZombieToast.cs" id="1_0cheh"]
 [ext_resource type="Texture2D" uid="uid://bwgf1ksd0717b" path="res://assets/top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_ixgif"]
 [ext_resource type="Script" path="res://assets/script/Health.cs" id="3_5mbp7"]
+[ext_resource type="Script" path="res://assets/script/ProgressBar.cs" id="4_fad1w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3en5o"]
 radius = 4.91822
@@ -15,6 +16,24 @@ size = Vector2(4.59878, 12.9492)
 position = Vector2(1, 0)
 motion_mode = 1
 script = ExtResource("1_0cheh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.11, 0.11)
+transform = Transform2D(0.11, 0, 0, 0.11, 0, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.008
+anchor_right = 0.008
+offset_left = -56.8757
+offset_top = -100.743
+offset_right = 57.1243
+offset_bottom = -73.7429
+script = ExtResource("4_fad1w")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("3_5mbp7")
+max_health = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.0640159, 0.000619411)
@@ -30,10 +49,6 @@ texture = ExtResource("2_ixgif")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 position = Vector2(4.24911, 0.199055)
 shape = SubResource("RectangleShape2D_m7mo3")
-
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("3_5mbp7")
-max_health = 50.0
 
 [connection signal="body_entered" from="AttackRange" to="." method="OnAttackBodyEnter"]
 [connection signal="body_exited" from="AttackRange" to="." method="OnAttackBodyExit"]

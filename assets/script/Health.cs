@@ -1,7 +1,7 @@
 using Godot;
 
 public partial class Health : Node2D {
-    private float health;
+    [Export] public float health;
 
     [Export] public float max_health = 100f;
 
@@ -15,7 +15,6 @@ public partial class Health : Node2D {
 
     public void Damage(float damage) {
         health -= damage;
-
         if (health <= 0) GetParent().QueueFree();
     }
 }

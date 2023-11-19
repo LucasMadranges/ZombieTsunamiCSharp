@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfrar38geyvau"]
+[gd_scene load_steps=9 format=3 uid="uid://dfrar38geyvau"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_xrap6"]
 [ext_resource type="Script" path="res://assets/script/Health.cs" id="5_ufpc1"]
+[ext_resource type="Script" path="res://assets/script/ProgressBar.cs" id="6_5uwav"]
 [ext_resource type="Texture2D" uid="uid://brtxv21m1o0th" path="res://assets/top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="8_0w0i8"]
 [ext_resource type="Script" path="res://player/Weapon.cs" id="13_lqpju"]
 [ext_resource type="PackedScene" uid="uid://bqaesw3irxe8p" path="res://player/Bullet.tscn" id="15_10f6q"]
@@ -10,10 +11,17 @@
 radius = 4.91777
 height = 17.8126
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7jlo"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_xrap6")
+
+[node name="Health" type="Node2D" parent="."]
+scale = Vector2(1, 1)
+script = ExtResource("5_ufpc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.0147267, -2.97308)
@@ -34,5 +42,17 @@ position = Vector2(2.99558, -2.96263)
 scale = Vector2(0.344204, 0.393765)
 texture = ExtResource("8_0w0i8")
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("5_ufpc1")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -94.0
+offset_right = 593.0
+offset_bottom = -15.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/fill = SubResource("StyleBoxFlat_n7jlo")
+script = ExtResource("6_5uwav")
