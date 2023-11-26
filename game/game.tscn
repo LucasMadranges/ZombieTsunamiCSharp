@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=45 format=3 uid="uid://bh854n80ey5la"]
 
 [ext_resource type="Script" path="res://game/game.cs" id="1_2hihr"]
 [ext_resource type="PackedScene" uid="uid://balrox7yjn3f2" path="res://assets/maps/Building/red_building1.tscn" id="3_1qsmt"]
@@ -1534,12 +1534,6 @@ texture = ExtResource("10_ywahv")
 sources/0 = SubResource("TileSetAtlasSource_ue4rc")
 sources/1 = SubResource("TileSetAtlasSource_rqeyr")
 
-[sub_resource type="Curve2D" id="Curve2D_yl8ip"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 155, 24.2194, 0, 0, 0, 0, 26.0139, 24.2194, 0, 0, 0, 0, 26.0139, -86.179, 0, 0, 0, 0, 155, -86.179, 0, 0, 0, 0, 155, 22.4388)
-}
-point_count = 5
-
 [node name="Node2D" type="Node2D"]
 position = Vector2(-3, 54)
 script = ExtResource("1_2hihr")
@@ -1839,33 +1833,12 @@ position = Vector2(151, 335)
 [node name="cars8" parent="maps" instance=ExtResource("26_aaiul")]
 position = Vector2(459, 290)
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
-[node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(403, 259)
-
-[node name="MobPath" type="Path2D" parent="."]
-position = Vector2(962.529, 142.813)
-rotation = 3.14159
-scale = Vector2(5.20986, 4.49282)
-curve = SubResource("Curve2D_yl8ip")
-
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(155, 24.2194)
-rotation = 3.14159
-
 [node name="ZombieToast" parent="." instance=ExtResource("3_nyby6")]
 position = Vector2(491, 314)
 
 [node name="ZombieToast3" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(571, 266)
+position = Vector2(539, 290)
 
 [node name="medkit" parent="." instance=ExtResource("30_8f560")]
+z_index = -1
 position = Vector2(595, 306)

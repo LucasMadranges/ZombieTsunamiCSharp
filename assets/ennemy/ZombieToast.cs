@@ -18,10 +18,6 @@ public partial class ZombieToast : CharacterBody2D {
 
         attack_speed = 1 / aps;
         time_until_attack = attack_speed;
-
-        // Choose a random location on Path2D.
-        var mobSpawnLocation = GetTree().CurrentScene.GetNode<PathFollow2D>("MobPath/MobSpawnLocation");
-        mobSpawnLocation.ProgressRatio = GD.Randf();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
