@@ -47,7 +47,7 @@ volume_db = 1.0
 position = Vector2(0.460972, 0.455729)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_5kll5")
-frame_progress = 0.372791
+frame_progress = 0.739803
 
 [node name="Range" type="Area2D" parent="."]
 

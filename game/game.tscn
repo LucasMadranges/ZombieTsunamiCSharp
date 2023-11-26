@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=49 format=3 uid="uid://bh854n80ey5la"]
 
 [ext_resource type="Script" path="res://game/game.cs" id="1_2hihr"]
 [ext_resource type="PackedScene" uid="uid://balrox7yjn3f2" path="res://assets/maps/Building/red_building1.tscn" id="3_1qsmt"]
@@ -29,7 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://7gjqj5c1v84i" path="res://assets/maps/Items/ColorPanel/color_panel_up.tscn" id="26_npsbv"]
 [ext_resource type="PackedScene" uid="uid://dk3iipe6sahsd" path="res://assets/maps/Items/ColorPanel/color_panel_left.tscn" id="27_t83x0"]
 [ext_resource type="PackedScene" uid="uid://txdai3ds50wk" path="res://assets/maps/Items/Cars/Taxi/taxi_left.tscn" id="27_u76ob"]
+[ext_resource type="PackedScene" uid="uid://c4p1jadp3x7yj" path="res://assets/medkit/medkit.tscn" id="30_8f560"]
 [ext_resource type="PackedScene" uid="uid://bj156c3soyty3" path="res://assets/money/SmallCoin.tscn" id="31_hwx68"]
+[ext_resource type="PackedScene" uid="uid://squ84p8wxgr8" path="res://assets/money/BigCoin.tscn" id="32_jf3pg"]
+[ext_resource type="PackedScene" uid="uid://bwdxd1avhflb5" path="res://assets/money/BagCoins.tscn" id="33_4vo4r"]
+[ext_resource type="Script" path="res://game/EnemySpawner.cs" id="33_cbgmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnkq8"]
 size = Vector2(20, 112)
@@ -1833,11 +1837,37 @@ position = Vector2(151, 335)
 [node name="cars8" parent="maps" instance=ExtResource("26_aaiul")]
 position = Vector2(459, 290)
 
-[node name="ZombieToast" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(491, 314)
-
-[node name="ZombieToast3" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(539, 290)
-
 [node name="SmallCoin" parent="." instance=ExtResource("31_hwx68")]
-position = Vector2(1027, 114)
+position = Vector2(603, 282)
+
+[node name="BigCoin" parent="." instance=ExtResource("32_jf3pg")]
+position = Vector2(603, 298)
+
+[node name="BagCoins" parent="." instance=ExtResource("33_4vo4r")]
+position = Vector2(627, 298)
+
+[node name="medkit" parent="." instance=ExtResource("30_8f560")]
+position = Vector2(627, 282)
+
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("33_cbgmh")
+enemy_scn = ExtResource("3_nyby6")
+spawn_point = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+
+[node name="SpawnPoint4" type="Node2D" parent="EnemySpawner"]
+position = Vector2(179, 514)
+
+[node name="SpawnPoint3" type="Node2D" parent="EnemySpawner"]
+position = Vector2(803, 514)
+
+[node name="SpawnPoint2" type="Node2D" parent="EnemySpawner"]
+position = Vector2(803, 50)
+
+[node name="SpawnPoint" type="Node2D" parent="EnemySpawner"]
+position = Vector2(179, 50)
+
+[node name="ZombieToast" parent="." instance=ExtResource("3_nyby6")]
+position = Vector2(515.06, 298.104)
+
+[node name="ZombieToast2" parent="." instance=ExtResource("3_nyby6")]
+position = Vector2(539.06, 266.104)
