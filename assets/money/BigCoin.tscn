@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://squ84p8wxgr8"]
+[gd_scene load_steps=9 format=3 uid="uid://squ84p8wxgr8"]
 
 [ext_resource type="Script" path="res://assets/money/BigCoin.cs" id="1_07jak"]
 [ext_resource type="Texture2D" uid="uid://cvsavaeow5wmp" path="res://assets/money/big gold coin.png" id="1_uok33"]
+[ext_resource type="AudioStream" uid="uid://cvl1fcswuiwrw" path="res://assets/sounds/collect-ring-15982.mp3" id="3_10fv7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5t3fu"]
 atlas = ExtResource("1_uok33")
@@ -44,11 +45,15 @@ script = ExtResource("1_07jak")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.460972, 0.455729)
 sprite_frames = SubResource("SpriteFrames_di8ub")
-frame_progress = 0.0456927
+frame_progress = 0.945066
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_r62et")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_10fv7")
+volume_db = 1.0
 
 [connection signal="body_entered" from="Range" to="." method="OnBodyEntered"]

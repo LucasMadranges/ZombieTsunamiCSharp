@@ -34,7 +34,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0l2ww"]
-radius = 7.45927
+radius = 4.67413
 
 [node name="BagCoins" type="Node2D"]
 script = ExtResource("1_ubbi4")
@@ -45,8 +45,9 @@ volume_db = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.460972, 0.455729)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_5kll5")
-frame_progress = 0.0724496
+frame_progress = 0.372791
 
 [node name="Range" type="Area2D" parent="."]
 
