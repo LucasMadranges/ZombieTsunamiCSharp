@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bh854n80ey5la"]
+[gd_scene load_steps=48 format=3 uid="uid://bh854n80ey5la"]
 
 [ext_resource type="Script" path="res://game/game.cs" id="1_2hihr"]
 [ext_resource type="PackedScene" uid="uid://balrox7yjn3f2" path="res://assets/maps/Building/red_building1.tscn" id="3_1qsmt"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://c4p1jadp3x7yj" path="res://assets/medkit/medkit.tscn" id="30_8f560"]
 [ext_resource type="PackedScene" uid="uid://bj156c3soyty3" path="res://assets/money/SmallCoin.tscn" id="31_hwx68"]
 [ext_resource type="PackedScene" uid="uid://squ84p8wxgr8" path="res://assets/money/BigCoin.tscn" id="32_jf3pg"]
+[ext_resource type="PackedScene" uid="uid://bwdxd1avhflb5" path="res://assets/money/BagCoins.tscn" id="33_4vo4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnkq8"]
 size = Vector2(20, 112)
@@ -1859,3 +1860,9 @@ position = Vector2(627, 266)
 
 [node name="BigCoin2" parent="." instance=ExtResource("32_jf3pg")]
 position = Vector2(675, 258)
+
+[node name="BagCoins" parent="." instance=ExtResource("33_4vo4r")]
+position = Vector2(723, 298)
+
+[node name="BagCoins2" parent="." instance=ExtResource("33_4vo4r")]
+position = Vector2(723, 258)

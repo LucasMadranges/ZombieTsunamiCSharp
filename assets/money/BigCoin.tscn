@@ -44,10 +44,11 @@ script = ExtResource("1_07jak")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.460972, 0.455729)
 sprite_frames = SubResource("SpriteFrames_di8ub")
-frame = 2
-frame_progress = 0.294245
+frame_progress = 0.0456927
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_r62et")
+
+[connection signal="body_entered" from="Range" to="." method="OnBodyEntered"]

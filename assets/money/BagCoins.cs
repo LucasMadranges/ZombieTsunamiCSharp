@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class SmallCoin : Node2D {
+public partial class BagCoins : Node2D {
     private int coin;
 
     // Called when the node enters the scene tree for the first time.
@@ -12,9 +12,9 @@ public partial class SmallCoin : Node2D {
     public void OnBodyEntered(Node2D body) {
         if (body.IsInGroup("player")) {
             GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play(1f);
-
+            
             coin = GetTree().CurrentScene.GetNode<CharacterBody2D>("Player").GetNode<Money>("Money").money.ToInt();
-            coin += 5;
+            coin += 20;
             GetTree().CurrentScene.GetNode<CharacterBody2D>("Player").GetNode<Money>("Money").money = coin.ToString();
             QueueFree();
         }

@@ -11,6 +11,8 @@ public partial class BigCoin : Node2D {
 
     public void OnBodyEntered(Node2D body) {
         if (body.IsInGroup("player")) {
+            GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play(1f);
+
             coin = GetTree().CurrentScene.GetNode<CharacterBody2D>("Player").GetNode<Money>("Money").money.ToInt();
             coin += 10;
             GetTree().CurrentScene.GetNode<CharacterBody2D>("Player").GetNode<Money>("Money").money = coin.ToString();
