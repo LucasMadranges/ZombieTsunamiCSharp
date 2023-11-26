@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://squ84p8wxgr8"]
+
+[ext_resource type="Script" path="res://assets/money/BigCoin.cs" id="1_07jak"]
+[ext_resource type="Texture2D" uid="uid://cvsavaeow5wmp" path="res://assets/money/big gold coin.png" id="1_uok33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t3fu"]
+atlas = ExtResource("1_uok33")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy676"]
+atlas = ExtResource("1_uok33")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q10ih"]
+atlas = ExtResource("1_uok33")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di8ub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t3fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy676")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q10ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy676")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r62et"]
+radius = 3.03192
+
+[node name="BigCoin" type="Node2D"]
+script = ExtResource("1_07jak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.460972, 0.455729)
+sprite_frames = SubResource("SpriteFrames_di8ub")
+frame = 2
+frame_progress = 0.294245
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_r62et")

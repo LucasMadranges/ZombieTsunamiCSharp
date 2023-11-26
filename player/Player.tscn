@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfrar38geyvau"]
+[gd_scene load_steps=11 format=3 uid="uid://dfrar38geyvau"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_xrap6"]
+[ext_resource type="Script" path="res://player/Money.cs" id="3_6i6pr"]
 [ext_resource type="Script" path="res://assets/script/Health.cs" id="5_ufpc1"]
 [ext_resource type="Script" path="res://assets/script/ProgressBar.cs" id="6_5uwav"]
 [ext_resource type="Texture2D" uid="uid://brtxv21m1o0th" path="res://assets/top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="8_0w0i8"]
+[ext_resource type="Script" path="res://player/TextEdit.cs" id="8_6thh6"]
 [ext_resource type="Script" path="res://player/Weapon.cs" id="13_lqpju"]
 [ext_resource type="PackedScene" uid="uid://bqaesw3irxe8p" path="res://player/Bullet.tscn" id="15_10f6q"]
 
@@ -21,6 +23,10 @@ script = ExtResource("1_xrap6")
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource("5_ufpc1")
+
+[node name="Money" type="Node2D" parent="."]
+scale = Vector2(1, 1)
+script = ExtResource("3_6i6pr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.0147267, -2.97308)
@@ -62,13 +68,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -65.0
-offset_right = -8.0
-offset_bottom = -10.0
+offset_left = -269.0
+offset_top = -99.0
+offset_right = -15.0
+offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "dedzedz"
 editable = false
 drag_and_drop_selection_enabled = false
 middle_mouse_paste_enabled = false
+script = ExtResource("8_6thh6")
