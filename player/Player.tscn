@@ -20,7 +20,6 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("1_xrap6")
 
 [node name="Health" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 script = ExtResource("5_ufpc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,9 +41,9 @@ position = Vector2(2.99558, -2.96263)
 scale = Vector2(0.344204, 0.393765)
 texture = ExtResource("8_0w0i8")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

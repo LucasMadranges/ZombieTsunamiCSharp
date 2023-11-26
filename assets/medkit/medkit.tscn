@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4p1jadp3x7yj"]
+
+[ext_resource type="Texture2D" uid="uid://b8unj4i4cs2t4" path="res://assets/medkit/Health potion.png" id="1_k472j"]
+
+[node name="medkit" type="Node2D"]
+
+[node name="HealthPotion" type="Sprite2D" parent="."]
+position = Vector2(0.0404701, 0.0872571)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_k472j")
