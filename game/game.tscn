@@ -1865,9 +1865,3 @@ position = Vector2(803, 50)
 
 [node name="SpawnPoint" type="Node2D" parent="EnemySpawner"]
 position = Vector2(179, 50)
-
-[node name="ZombieToast" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(515.06, 298.104)
-
-[node name="ZombieToast2" parent="." instance=ExtResource("3_nyby6")]
-position = Vector2(539.06, 266.104)

@@ -9,6 +9,8 @@ public partial class ZombieToast : CharacterBody2D {
     [Export] private float damage = 10f;
     private float time_until_attack;
     private bool within_attack_range;
+    
+    [Export] private PackedScene small_coin_scn;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready() {
@@ -34,6 +36,8 @@ public partial class ZombieToast : CharacterBody2D {
         else {
             time_until_attack -= (float)delta;
         }
+        
+        Health();
     }
 
     public void Attack() {
@@ -48,6 +52,18 @@ public partial class ZombieToast : CharacterBody2D {
         if (body.IsInGroup("player")) {
             within_attack_range = false;
             time_until_attack = attack_speed;
+        }
+    }
+
+    public void Health() {
+        if (GetNode<Health>("Health").health <= 0) {
+            /*
+            SmallCoin small_coin = (SmallCoin)small_coin_scn.Instantiate();
+            GetTree().CurrentScene.AddChild(small_coin);
+            small_coin.Position = Position;
+            */
+            
+            QueueFree();
         }
     }
 }
