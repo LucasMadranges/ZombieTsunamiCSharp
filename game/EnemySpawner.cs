@@ -30,6 +30,6 @@ public partial class EnemySpawner : Node2D {
         Vector2 location = spawn_point[rng.Randi() % spawn_point.Length].GlobalPosition;
         ZombieToast zombie = (ZombieToast)enemy_scn.Instantiate();
         zombie.GlobalPosition = location;
-        GetTree().Root.AddChild(zombie);
+        GetTree().CurrentScene.AddChild(zombie);
     }
 }

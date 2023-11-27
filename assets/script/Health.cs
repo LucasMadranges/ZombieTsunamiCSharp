@@ -19,11 +19,13 @@ public partial class Health : Node2D {
     public void Damage(float damage) {
         health -= damage;
         if (health <= 0) {
-            var small_coin = GetTree().CurrentScene.GetNode<SmallCoin>("SmallCoin");
-
+            /*
+            SmallCoin small_coin = (SmallCoin)small_coin_scn.Instantiate();
             enemy_position = GetTree().CurrentScene.GetNode<ZombieToast>("ZombieToast").Position;
-            small_coin.Position = enemy_position;
             GetTree().CurrentScene.AddChild(small_coin);
+            small_coin.Position = enemy_position;
+            */
+            
             GetParent().QueueFree();
         }
     }

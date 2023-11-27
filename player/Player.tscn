@@ -125,7 +125,7 @@ script = ExtResource("6_5uwav")
 position = Vector2(615.422, 39.2064)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6j6h5")
-frame_progress = 0.372116
+frame_progress = 0.250431
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer2"]
 anchors_preset = 3
