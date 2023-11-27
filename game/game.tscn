@@ -1852,7 +1852,7 @@ position = Vector2(627, 282)
 [node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawn_point")]
 script = ExtResource("33_cbgmh")
 enemy_scn = ExtResource("3_nyby6")
-spawn_point = [NodePath("SpawnPoint"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+spawn_point = [NodePath("SpawnPoint4"), NodePath("SpawnPoint3"), NodePath("SpawnPoint2"), NodePath("SpawnPoint")]
 
 [node name="SpawnPoint4" type="Node2D" parent="EnemySpawner"]
 position = Vector2(179, 514)

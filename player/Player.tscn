@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfrar38geyvau"]
+[gd_scene load_steps=21 format=3 uid="uid://dfrar38geyvau"]
 
 [ext_resource type="Script" path="res://player/Player.cs" id="1_xrap6"]
 [ext_resource type="Script" path="res://player/Money.cs" id="3_6i6pr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://assets/script/ProgressBar.cs" id="6_5uwav"]
 [ext_resource type="Texture2D" uid="uid://brtxv21m1o0th" path="res://assets/top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="8_0w0i8"]
 [ext_resource type="Script" path="res://player/TextEdit.cs" id="8_6thh6"]
+[ext_resource type="Texture2D" uid="uid://bbyy5dyl41kbm" path="res://assets/medkit/Pixel Heart Sprite Sheet 32x32.png" id="8_op10a"]
+[ext_resource type="Texture2D" uid="uid://d0ts30fx0aw4t" path="res://assets/money/coin bag.png" id="9_tcbi5"]
 [ext_resource type="Script" path="res://player/Weapon.cs" id="13_lqpju"]
 [ext_resource type="PackedScene" uid="uid://bqaesw3irxe8p" path="res://player/Bullet.tscn" id="15_10f6q"]
 
@@ -16,6 +18,64 @@ height = 17.8126
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7jlo"]
 bg_color = Color(1, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5x72"]
+atlas = ExtResource("8_op10a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58exq"]
+atlas = ExtResource("8_op10a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4m6o"]
+atlas = ExtResource("8_op10a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6j6h5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5x72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58exq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4m6o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3c6l"]
+atlas = ExtResource("9_tcbi5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y00a"]
+atlas = ExtResource("9_tcbi5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc4mg"]
+atlas = ExtResource("9_tcbi5")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5hwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3c6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y00a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc4mg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 scale = Vector2(0.7, 0.7)
@@ -25,7 +85,6 @@ script = ExtResource("1_xrap6")
 script = ExtResource("5_ufpc1")
 
 [node name="Money" type="Node2D" parent="."]
-scale = Vector2(1, 1)
 script = ExtResource("3_6i6pr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,19 +121,32 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/fill = SubResource("StyleBoxFlat_n7jlo")
 script = ExtResource("6_5uwav")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer2/ProgressBar"]
+position = Vector2(615.422, 39.2064)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6j6h5")
+frame_progress = 0.372116
+
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer2"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -269.0
+offset_left = -188.0
 offset_top = -99.0
 offset_right = -15.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "35"
 editable = false
 drag_and_drop_selection_enabled = false
 middle_mouse_paste_enabled = false
 script = ExtResource("8_6thh6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer2/TextEdit"]
+position = Vector2(135.317, 44.3208)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_h5hwy")
