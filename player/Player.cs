@@ -57,6 +57,9 @@ public partial class Player : CharacterBody2D {
         // if (Input.IsActionJustReleased("move_up")) animatedSprite2D.Animation = "up_stop";
         // if (Input.IsActionJustReleased("move_down")) animatedSprite2D.Animation = "down_stop";
 
+        GetNode<AnimatedSprite2D>("CanvasLayer2/ProgressBar/AnimatedSprite2D").Play();
+        GetNode<AnimatedSprite2D>("CanvasLayer2/TextEdit/AnimatedSprite2D").Play();
+        
         MoveAndSlide();
 
         LookAt(GetGlobalMousePosition());

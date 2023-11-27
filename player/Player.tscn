@@ -44,7 +44,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3c6l"]
@@ -125,7 +125,7 @@ script = ExtResource("6_5uwav")
 position = Vector2(615.422, 39.2064)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6j6h5")
-frame_progress = 0.0258006
+frame_progress = 0.755903
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer2"]
 anchors_preset = 3
@@ -150,3 +150,4 @@ script = ExtResource("8_6thh6")
 position = Vector2(135.317, 44.3208)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_h5hwy")
+frame_progress = 0.807779

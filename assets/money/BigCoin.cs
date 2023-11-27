@@ -7,7 +7,9 @@ public partial class BigCoin : Node2D {
     public override void _Ready() {}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta) {}
+    public override void _Process(double delta) {
+        GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play();
+    }
 
     public void OnBodyEntered(Node2D body) {
         if (body.IsInGroup("player")) {
